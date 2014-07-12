@@ -5,6 +5,8 @@
 
 This Alfred workflow converts temperatures between Fahrenheit, Celcius, and Kelvin.
 
+Don't know what Alfred is? Check it out [here](http://www.alfredapp.com/).
+
 ==============
 
 ###Install
