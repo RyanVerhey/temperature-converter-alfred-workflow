@@ -5,7 +5,19 @@
 	<key>bundleid</key>
 	<string></string>
 	<key>connections</key>
-	<dict/>
+	<dict>
+		<key>889DDA61-84A9-4850-84ED-43424ECC1139</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1B6B4B96-79B3-42D2-84EF-5A3BCC900031</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
 	<key>createdby</key>
 	<string>Ryan Verhey</string>
 	<key>description</key>
@@ -15,11 +27,67 @@
 	<key>name</key>
 	<string>Temperature Converter</string>
 	<key>objects</key>
-	<array/>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>1B6B4B96-79B3-42D2-84EF-5A3BCC900031</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>temp</string>
+				<key>runningsubtext</key>
+				<string>Converting...</string>
+				<key>script</key>
+				<string>ruby ./convert.rb {query}</string>
+				<key>subtext</key>
+				<string>Type in &lt;temp&gt;F or &lt;temp&gt;C</string>
+				<key>title</key>
+				<string>Convert Temperatures</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>889DDA61-84A9-4850-84ED-43424ECC1139</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
-	<dict/>
+	<dict>
+		<key>1B6B4B96-79B3-42D2-84EF-5A3BCC900031</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>889DDA61-84A9-4850-84ED-43424ECC1139</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
 	<key>webaddress</key>
 	<string>ryanverhey.com</string>
 </dict>
