@@ -1,3 +1,5 @@
+require_relative 'alfred_helper'
+
 def f_to_c(f_temp)
   ((f_temp.to_f - 32.0) / 1.8).round(2)#.to_f
 end
@@ -39,23 +41,23 @@ end
 
 units = { "f" => f, "c" => c, "k" => k }
 
-xml = "<items>"
+xml = Alfred::Workflow.new
 
 if f && c && k && input =~ /\d+.*[CcFfKk]/
   units.each do |unit, value|
     if unit != input_unit
-      xml += "<item arg='#{value}' valid='YES'>"
-      xml += "<title>#{value}°#{unit.upcase}</title>"
-      xml += "<subtitle>Copy to clipboard</subtitle>"
-      xml += "</item>"
+      item = Alfred::Item.new
+      item.arg = value
+      item.title = "#{value}°#{unit.upcase}"
+      item.subtitle = "Copy to Clipboard"
+      xml << item
     end
   end
 else
-  xml += "<item valid='NO'>"
-  xml += "<title>Type in &lt;temp&gt;F or &lt;temp&gt;C or &lt;temp&gt;K...</title>"
-  xml += "</item>"
+  error = Alfred::Item.new
+  error.valid = "no"
+  error.title = "Type in &lt;temp&gt;F or &lt;temp&gt;C or &lt;temp&gt;K..."
+  xml << error
 end
-
-xml += "</items>"
 
 puts xml
