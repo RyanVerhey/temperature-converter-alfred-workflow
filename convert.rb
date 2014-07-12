@@ -6,11 +6,11 @@ def c_to_f(c_temp)
   ('%.2f' % (c_temp.to_f * 1.8 + 32.0)).to_f
 end
 
-def to_k(c_temp)
+def c_to_k(c_temp)
   ('%.2f' % (c_temp + 273.15)).to_f
 end
 
-def from_k(k_temp)
+def k_to_c(k_temp)
   ('%.2f' % (k_temp - 273.15)).to_f
 end
 
@@ -26,14 +26,14 @@ case input_unit
 when "f"
   f = input.to_f
   c = f_to_c(f)
-  k = to_k(c)
+  k = c_to_k(c)
 when "c"
   c = input.to_f
   f = c_to_f(c)
   k = to_k(c)
 when "k"
   k = input.to_f
-  c = from_k(k)
+  c = k_to_c(k)
   f = c_to_f(c)
 end
 
