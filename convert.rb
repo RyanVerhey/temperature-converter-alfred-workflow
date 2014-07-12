@@ -1,17 +1,17 @@
 def f_to_c(f_temp)
-  ('%.2f' % ((f_temp.to_f - 32.0) / 1.8)).to_f
+  ((f_temp.to_f - 32.0) / 1.8).round(2)#.to_f
 end
 
 def c_to_f(c_temp)
-  ('%.2f' % (c_temp.to_f * 1.8 + 32.0)).to_f
+  (c_temp.to_f * 1.8 + 32.0).round(2)#.to_f
 end
 
 def c_to_k(c_temp)
-  ('%.2f' % (c_temp + 273.15)).to_f
+  (c_temp + 273.15).round(2)#.to_f
 end
 
 def k_to_c(k_temp)
-  ('%.2f' % (k_temp - 273.15)).to_f
+  (k_temp - 273.15).round(2)#.to_f
 end
 
 input = ARGV.first.strip
@@ -30,7 +30,7 @@ when "f"
 when "c"
   c = input.to_f
   f = c_to_f(c)
-  k = to_k(c)
+  k = c_to_k(c)
 when "k"
   k = input.to_f
   c = k_to_c(k)
