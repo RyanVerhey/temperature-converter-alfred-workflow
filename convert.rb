@@ -14,7 +14,7 @@ def k_to_c(k_temp)
   ('%.2f' % (k_temp - 273.15)).to_f
 end
 
-input = ARGV.first
+input = ARGV.first.strip
 
 input_unit = input[input.length - 1].downcase
 
@@ -41,7 +41,7 @@ units = { "f" => f, "c" => c, "k" => k }
 
 xml = "<items>"
 
-if f && c && k && input.strip =~ /\d+.*[CcFfKk]/
+if f && c && k && input =~ /\d+.*[CcFfKk]/
   units.each do |unit, value|
     if unit != input_unit
       xml += "<item arg='#{value}' valid='YES'>"
