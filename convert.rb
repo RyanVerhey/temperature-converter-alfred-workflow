@@ -20,9 +20,7 @@ input = ARGV.first.strip
 
 input_unit = input[input.length - 1].downcase
 
-f = nil
-c = nil
-k = nil
+f, c, k = nil
 
 case input_unit
 when "f"
