@@ -30,7 +30,7 @@ when "f"
 when "c"
   c = input.to_f
   f = c_to_f(c)
-  k = to_k(c)
+  k = c_to_k(c)
 when "k"
   k = input.to_f
   c = k_to_c(k)
