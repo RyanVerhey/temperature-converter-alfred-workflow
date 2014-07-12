@@ -1,27 +1,61 @@
+def f_to_c(f_temp)
+  ('%.2f' % ((f_temp.to_f - 32.0) / 1.8)).to_f
+end
+
+def c_to_f(c_temp)
+  ('%.2f' % (c_temp.to_f * 1.8 + 32.0)).to_f
+end
+
+def to_k(c_temp)
+  ('%.2f' % (c_temp + 273.15)).to_f
+end
+
+def from_k(k_temp)
+  ('%.2f' % (k_temp - 273.15)).to_f
+end
+
 input = ARGV.first
 
-unit = input[input.length - 1].downcase
+input_unit = input[input.length - 1].downcase
 
-output = nil
+f = nil
+c = nil
+k = nil
 
-case unit
+case input_unit
 when "f"
-  output = '%.2f' % ((input.to_f - 32) / 1.8)
+  f = input.to_f
+  c = f_to_c(f)
+  k = to_k(c)
 when "c"
-  output = '%.2f' % (input.to_f * 1.8 + 32)
+  c = input.to_f
+  f = c_to_f(c)
+  k = to_k(c)
+when "k"
+  k = input.to_f
+  c = from_k(k)
+  f = c_to_f(c)
 end
+
+units = { "f" => f, "c" => c, "k" => k }
 
 xml = "<items>"
 
-if output && input.strip =~ /\d+.+[CcFf]/
-  xml += "<item arg='#{output}' valid='YES'>"
-  xml += "<title>#{output}°#{unit == 'f' ? 'C' : 'F'} = #{input.to_f}°#{unit.upcase}</title>"
-  xml += "<subtitle>Copy to clipboard</subtitle>"
+if f && c && k && input.strip =~ /\d+.*[CcFfKk]/
+  units.each do |unit, value|
+    if unit != input_unit
+      xml += "<item arg='#{value}' valid='YES'>"
+      xml += "<title>#{value}°#{unit.upcase}</title>"
+      xml += "<subtitle>Copy to clipboard</subtitle>"
+      xml += "</item>"
+    end
+  end
 else
   xml += "<item valid='NO'>"
-  xml += "<title>Type in &lt;temp&gt;F or &lt;temp&gt;C...</title>"
+  xml += "<title>Type in &lt;temp&gt;F or &lt;temp&gt;C or &lt;temp&gt;K...</title>"
+  xml += "</item>"
 end
 
-xml += "</item></items>"
+xml += "</items>"
 
 puts xml
