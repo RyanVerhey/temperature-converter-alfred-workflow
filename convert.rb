@@ -44,17 +44,17 @@ xml = Alfred::Workflow.new
 if f && c && k && input =~ /\d+.*[CcFfKk]/
   units.each do |unit, value|
     if unit != input_unit
-      item = Alfred::Item.new
-      item.arg = value
-      item.title = "#{value}°#{unit.upcase}"
-      item.subtitle = "Copy to Clipboard"
+      item = Alfred::Item.new({
+        arg: value,
+        title: "#{value}°#{unit.upcase}",
+        subtitle: "Copy to clipboard" })
       xml << item
     end
   end
 else
-  error = Alfred::Item.new
-  error.valid = "no"
-  error.title = "Type in &lt;temp&gt;F or &lt;temp&gt;C or &lt;temp&gt;K..."
+  error = Alfred::Item.new({
+    valid: "no",
+    title: "Type in &lt;temp&gt;F or &lt;temp&gt;C or &lt;temp&gt;K..." })
   xml << error
 end
 
