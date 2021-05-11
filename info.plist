@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string></string>
+	<string>com.ryanverhey.temperatureconverter</string>
 	<key>connections</key>
 	<dict>
 		<key>889DDA61-84A9-4850-84ED-43424ECC1139</key>
@@ -15,6 +15,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 	</dict>
@@ -35,27 +37,51 @@
 				<false/>
 				<key>clipboardtext</key>
 				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
 			<string>1B6B4B96-79B3-42D2-84EF-5A3BCC900031</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>keyword</key>
 				<string>temp</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Converting...</string>
 				<key>script</key>
 				<string>ruby ./convert.rb {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>subtext</key>
 				<string>Type in &lt;temp&gt;F or &lt;temp&gt;C or &lt;temp&gt;K</string>
 				<key>title</key>
@@ -70,7 +96,7 @@
 			<key>uid</key>
 			<string>889DDA61-84A9-4850-84ED-43424ECC1139</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>3</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -79,15 +105,23 @@
 	<dict>
 		<key>1B6B4B96-79B3-42D2-84EF-5A3BCC900031</key>
 		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
 		<key>889DDA61-84A9-4850-84ED-43424ECC1139</key>
 		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1</string>
 	<key>webaddress</key>
 	<string>ryanverhey.com</string>
 </dict>
